@@ -6,11 +6,11 @@ const express = require('express');
 // get an instance of router
 var router = express.Router();
 
-// router.get('/', function(req, res) {
-//   db.Article.find({}).then(function(dbArticle) {
-//     res.render('index', {Article: dbArticle});
-//   });
-// });
+router.get('/', function(req, res) {
+  db.Article.find({}).then(function(dbArticle) {
+    res.render('index', {Article: dbArticle});
+  });
+});
 
 // A GET route for scraping the echoJS website
 router.get('/scrape', function(req, res) {
