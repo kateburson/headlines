@@ -2,8 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const axios = require('axios');
-const cheerio = require('cheerio');
+const router = require('./routes/routes.js')
 
 // Initialize Express
 const app = express();
@@ -22,10 +21,15 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 // Use Handlebars view engine
 app.set('view engine', 'handlebars');
 
-// Establish route for home page
-app.get('/', (req, res) => {
-  res.render('index');
+// we'll create our routes here
+
+// home page route (http://localhost:8080)
+app.get('/', function(req, res) {
+    res.render('index');  
 });
+
+// apply the routes to our application
+app.use('/', router);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
