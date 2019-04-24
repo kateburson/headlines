@@ -89,4 +89,10 @@ router.post('/articles/:id', function(req, res) {
   // and update it's 'note' property with the _id of the new note
 });
 
+router.get('/notes', function(req, res){
+  db.Note.find({}).then(function(dbNote) {
+    res.json(dbNote);
+  });
+});
+
 module.exports = router;
