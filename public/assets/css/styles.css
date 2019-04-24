@@ -1,0 +1,84 @@
+
+#wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5%;
+}
+
+#articles {
+  background-color: rgba(255, 255, 255, .95);
+  display: inline-block;
+  overflow: auto;
+  width: 60%;
+  height: 700px;
+  padding: 25px;
+}
+
+#notes {
+  float: right;
+  width: 30%;
+}
+
+textarea, input {
+  display: block;
+  width: 100%;
+  background-color: white;
+}
+
+input {
+  height: 36px;
+  font-size: 24px;
+}
+
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
+
+h1 {
+  /* font-family: 'Bigshot One', cursive; */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 56pt;
+  font-weight: bold;
+  line-height: .1em;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  size: 18pt;
+  font-weight: normal;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18pt;
+  font-weight: bolder;
+  color: #b53c00;
+}
+
+p, a, input, textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12pt;
+}
+
+a {
+  text-decoration: none;
+  color: #f7b409;
+}
+
+a:hover {
+  color: lightgrey;
+}
+
+input, textarea {
+  padding: 15px;
+  margin: 7.5px 0;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 15px;
+  font-size: 12pt;
+}

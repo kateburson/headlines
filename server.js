@@ -18,6 +18,9 @@ app.use(express.json());
 // Register Handlebars view engine
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 
+// Serve static content for the app from the 'public' directory in the application directory.
+app.use(express.static('public'));
+
 // Use Handlebars view engine
 app.set('view engine', 'handlebars');
 
