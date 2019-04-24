@@ -1,10 +1,11 @@
 // Require all models & dependencies
 const axios = require('axios');
 const cheerio = require('cheerio');
-const db = require('../models/index.js');
 const express = require('express');
+
+const db = require('../models/index.js');
 // get an instance of router
-var router = express.Router();
+const router = express.Router();
 
 router.get('/', function(req, res) {
   db.Article.find({}).then(function(dbArticle) {
