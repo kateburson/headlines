@@ -54,7 +54,7 @@ h3 {
   font-family: 'Open Sans', sans-serif;
   font-size: 18pt;
   font-weight: bolder;
-  color: #b53c00;
+  /* color: #b53c00; */
 }
 
 p, a, input, textarea {
