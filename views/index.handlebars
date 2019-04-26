@@ -112,7 +112,11 @@
     });
 
     $('#scrape').on('click', function() {
-      $.get('/scrape');
+      $.get('/scrape', function(data) {
+        if(data){
+          window.location = 'https://dashboard.heroku.com/apps/stormy-castle-31149/';
+        }
+      });
     });
 
   </script>
