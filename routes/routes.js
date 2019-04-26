@@ -49,6 +49,7 @@ router.get('/scrape', function(req, res) {
 
     // Send a message to the client
     res.send('Scrape Complete');
+    res.redirect('/');
   });
 });
 
@@ -89,9 +90,11 @@ router.post('/articles/:id', function(req, res) {
   // and update it's 'note' property with the _id of the new note
 });
 
-router.get('/notes', function(req, res){
-  db.Note.find({}).then(function(dbNote) {
-    res.json(dbNote);
+router.get('/notes/:id', function(req, res) {
+  var id = req.params.id;
+  db.Note.find({_id : id})
+  .then(function(data) {
+    res.json(data);
   });
 });
 

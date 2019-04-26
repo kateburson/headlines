@@ -41,13 +41,7 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 56pt;
   font-weight: bold;
-  line-height: .1em;
-}
-
-h2 {
-  font-family: 'Open Sans', sans-serif;
-  size: 18pt;
-  font-weight: normal;
+  /* line-height: .1em; */
 }
 
 h3 {
@@ -77,8 +71,20 @@ input, textarea {
 }
 
 button {
-  background-color: black;
+  background-color: #f7b409;
   color: white;
-  padding: 15px;
+  padding: 5px 10px;
   font-size: 12pt;
+  margin-bottom: 15px;
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  background: olive;
 }
