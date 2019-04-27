@@ -7,24 +7,25 @@
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body background="images/terrazzo.jpg">
-    <div id="wrapper">
+    <div id="wrapper" class="col-lg-8">
       <div>
       <h1>Design News</h1>
       <button id="scrape">Scrape Articles from Dezeen</button>
       </div>
-      <div id="articles">
-        {{#each Article}}
-          <div>
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <button href="{{link}}">Read Article</button>
-            <button id="view-notes" data-id="{{id}}">View Notes</button>
-            <button href="#add-note-modal" id="add-note" data-id="{{id}}" data-target="#add-note-modal" data-toggle="modal">Add Note</button>
-          </div>
-        {{/each}}
+      <div class="row">
+        <div id="articles" class="col-md-9">
+          {{#each Article}}
+            <div>
+              <h3>{{title}}</h3>
+              <p>{{description}}</p>
+              <a href="{{link}}"><button>Read Article</button></a>
+              <button id="view-notes" data-id="{{id}}">View Notes</button>
+              <button href="#add-note-modal" id="add-note" data-id="{{id}}" data-target="#add-note-modal" data-toggle="modal">Add Note</button>
+            </div>
+          {{/each}}
+        </div>
+        <div id="notes" class="col-md-3"></div>
       </div>
-      <div id="notes"></div>
-
       <!-- modal for add note form -->
       <div id="add-note-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -101,13 +102,17 @@
     $(document).on("click", "#view-notes", function() {
       $('#notes').empty();
       var thisId = $(this).attr("data-id");
-      console.log('clicked', thisId);
-      $.ajax({
-        method: 'GET',
-        URL: '/articles/' + thisId
-      }).then(function(data) {
+      console.log(thisId);
+      $.get('/articles/' + thisId, function(data) {
         console.log(data);
-        $('#notes').append(data.title, data.body);
+        for(var i = 0; i < data.note.length; i++) {
+          $('#notes').append('<h2>Notes</h2>');
+          var title = $('<h5>');
+          var body = $('<p>');
+          title.text(data.note[i].title);
+          body.text(data.note[i].body);
+          $('#notes').append(title, body);
+        }
       });
     });
 
